@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
@@ -34,16 +35,13 @@ function calculateWinner(squares) {
   return null;
 }
 
-export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [xIsNext, setXIsNext] = useState(true);
-
+function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
 
   if (winner) {
     status = `Winner: ${winner}`;
-  }else{
+  } else {
     status = `Next player: ${xIsNext ? "X" : "O"}`;
   }
 
@@ -60,13 +58,14 @@ export default function Board() {
       nextSquares[i] = "O";
     }
 
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
 
   return (
     <>
-      <div className="text-3xl font-bold text-center">{status}</div>
+      <div className="text-3xl font-bold text-center text-purple-700">
+        {status}
+      </div>
       <div className="flex">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -84,5 +83,28 @@ export default function Board() {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
     </>
+  );
+}
+
+export default function Game() {
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = useState(true);
+
+  const currentSquares = history[history.length - 1];
+
+  function handlePlay(nextSquares) {
+    setXIsNext(!xIsNext);
+    setHistory([...history, nextSquares]);
+  }
+
+  return (
+    <div>
+      <div>
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div>
+        <ol></ol>
+      </div>
+    </div>
   );
 }
