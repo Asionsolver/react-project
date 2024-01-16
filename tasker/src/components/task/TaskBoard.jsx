@@ -11,10 +11,11 @@ export default function TaskBoard() {
       "I want to learn React such then I can treat it like my slave and make it do whatever I whatever I want it to do.",
     tags: ["web", "react", "js"],
     priority: "High",
-    isFavorite: true,
+    isFavorite: false,
   };
 
   const [tasks, setTasks] = useState([defaultTask]);
+  
   return (
     <section className="mb-20" id="tasks">
       <div className="container">
