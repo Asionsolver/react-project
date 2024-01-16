@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TaskBoard from "./components/task/TaskBoard";
 
+
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       </div>
 
       <Footer />
+      
     </>
   );
 }
