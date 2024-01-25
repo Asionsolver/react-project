@@ -1,11 +1,20 @@
+import { useState } from "react";
 import MoonIcon from "../assets/icons/moon.svg";
 import Logo from "../assets/logo.svg";
 import RingIcon from "../assets/ring.svg";
 import CartIcon from "../assets/shopping-cart.svg";
+import CardDetails from "../components/CardDetails";
 
 export default function Header() {
+  const [showCart, setShowCart] = useState(false);
+
+  const handleCartShow = () => {
+    setShowCart(!showCart);
+  }
+
   return (
     <header>
+      {showCart && <CardDetails onClose={()=>setShowCart(!showCart)}/>}
       <nav className="container flex items-center justify-between space-x-10 py-6">
         <a href="index.html">
           <img src={Logo} width="139" height="26" alt="" />
@@ -25,25 +34,15 @@ export default function Header() {
               className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
               href="#"
             >
-              <img
-                src={MoonIcon}
-                width="24"
-                height="24"
-                alt=""
-              />
+              <img src={MoonIcon} width="24" height="24" alt="" />
             </a>
           </li>
           <li>
             <a
               className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
-              href="#"
+              href="#" onClick={handleCartShow}
             >
-              <img
-                src={CartIcon}
-                width="24"
-                height="24"
-                alt=""
-              />
+              <img src={CartIcon} width="24" height="24" alt="" />
             </a>
           </li>
         </ul>
