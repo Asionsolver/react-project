@@ -1,4 +1,4 @@
-import { getAllMovies } from "../data/movies";
+import { getAllMovies } from "../../data/movies";
 import MovieCard from "./MovieCard";
 
 
