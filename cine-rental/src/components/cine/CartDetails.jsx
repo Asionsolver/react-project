@@ -5,6 +5,7 @@ import CheckOutIcon from "../../assets/icons/checkout.svg";
 import { MovieContext } from "../../context";
 import { getImgUrl } from "../../utils/cine-utility";
 
+import { toast } from "react-toastify";
 /* eslint-disable react/prop-types */
 export default function CartDetails({ onClose }) {
   const { state, dispatch } = useContext(MovieContext);
@@ -13,6 +14,13 @@ export default function CartDetails({ onClose }) {
   const handleDeleteCart = (event, item) => {
     event.preventDefault();
     dispatch({ type: "REMOVE_FROM_CART", payload: item });
+    toast.success(`Movie ${item.title} removed successfully`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
   };
 
   return (

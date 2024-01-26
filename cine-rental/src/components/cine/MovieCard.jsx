@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { MovieContext } from "../../context";
 import { getImgUrl } from "../../utils/cine-utility";
 import MovieDetailsModal from "./MovieDetailsModal";
@@ -29,8 +30,21 @@ export default function MovieCard({ movie }) {
 
     if (!found) {
       dispatch({ type: "ADD_TO_CART", payload: { ...movie } });
+      toast.success(`Movie ${movie.title} added successfully`,{
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
     } else {
-      alert(`The movie ${movie.title} has been already added to the cart`);
+      toast.error(`Movie ${movie.title} already added`,{
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
     }
   };
   return (
@@ -43,7 +57,7 @@ export default function MovieCard({ movie }) {
         />
       )}
       <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
-        <a href="#" onClick={() => handleMovieSelection(movie)}>
+        <button href="#" onClick={() => handleMovieSelection(movie)}>
           <img
             className="w-full object-cover"
             src={getImgUrl(movie.cover)}
@@ -64,7 +78,7 @@ export default function MovieCard({ movie }) {
               <span>${movie.price} | Add to Cart</span>
             </a>
           </figcaption>
-        </a>
+        </button>
       </figure>
     </>
   );

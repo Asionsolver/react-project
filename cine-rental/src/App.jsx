@@ -6,14 +6,16 @@ import Header from "./pages/Header";
 import SideBar from "./pages/SideBar";
 import { cartReducer, initialState } from "./reducers/CartReducer";
 
-function App() {
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+function App() {
   const [darkMood, setDarkMood] = useState(true);
 
-  const [state, dispatch] = useReducer(cartReducer, initialState)
+  const [state, dispatch] = useReducer(cartReducer, initialState);
   return (
-    <div className={`h-full w-full ${darkMood ? "dark":""}`}>
-      <ThemeContext.Provider value={{darkMood, setDarkMood}}>
+    <div className={`h-full w-full ${darkMood ? "dark" : ""}`}>
+      <ThemeContext.Provider value={{ darkMood, setDarkMood }}>
         <MovieContext.Provider value={{ state, dispatch }}>
           <Header />
           <main className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
@@ -21,7 +23,7 @@ function App() {
             <MovieList />
           </main>
           <Footer />
-
+          <ToastContainer />
         </MovieContext.Provider>
       </ThemeContext.Provider>
     </div>
