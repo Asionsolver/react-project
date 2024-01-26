@@ -2,7 +2,7 @@ import { useContext } from "react";
 import DeleteIcon from "../../assets/delete.svg";
 import CheckOutIcon from "../../assets/icons/checkout.svg";
 
-import MovieContext from "../../context";
+import { MovieContext } from "../../context";
 import { getImgUrl } from "../../utils/cine-utility";
 
 /* eslint-disable react/prop-types */

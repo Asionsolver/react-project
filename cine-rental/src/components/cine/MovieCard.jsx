@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useContext, useState } from "react";
-import MovieContext from "../../context";
+import { MovieContext } from "../../context";
 import { getImgUrl } from "../../utils/cine-utility";
 import MovieDetailsModal from "./MovieDetailsModal";
 import Rating from "./Rating";
