@@ -38,6 +38,10 @@ export default function App() {
             className="toggle"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           />
+
+          <a>Link</a>
+          <a>Link</a>
+          <a>Link</a>
         </Header>
       </Layout>
     </Layout>
