@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Tables () {
+export default function Tables() {
   const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
 
@@ -13,13 +13,26 @@ export default function Tables () {
       setRecords(response.data);
     });
   }, []);
+
+  const handleSubmit = (id) => {
+    axios
+      .delete(`http://localhost:3000/users/${id}`)
+      .then((response) => {
+        console.log(response);
+        alert("Data deleted successfully");
+        setRecords(records.filter((record) => record.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex flex-col">
-        <div className="my-5 text-2xl max-w-[470px] text-end text-purple-600 border-none">
-            <button className="py-3 px-8 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
-                <Link to="/create">Create +</Link>
-            </button>
-        </div>
+      <div className="my-5 text-2xl max-w-[470px] text-end text-purple-600 border-none">
+        <button className="py-3 px-8 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
+          <Link to="/create">Create +</Link>
+        </button>
+      </div>
 
       <div className="-m-1.5 overflow-x-auto">
         <div className="p-1.5  inline-block align-middle">
@@ -56,16 +69,16 @@ export default function Tables () {
                       {record.email}
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <Link to="/delete"
-                      
+                      <button
+                        onClick={() => handleSubmit(record.id)}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400"
                       >
                         Delete
-                      </Link>
+                      </button>
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <Link to="/update"
-                     
+                      <Link
+                        to={`/update/${record.id}`}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400"
                       >
                         Edit
