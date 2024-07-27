@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Samsung Galaxy S21",
+      "brand": "Samsung",
+      "category": "Electronics",
+      "price": 999,
+      "description": "Samsung Galaxy S21 smartphone was launched on 14th January 2021.",
+      "imageFilename": "one_01.jpg",
+      "createdAt": "11/3/2023"
+    },
+    {
+      "id": 2,
+      "name": "BLU Hero II",
+      "brand": "BLU",
+      "category": "Electronics",
+      "price": 588,
+      "description": "BLU Hero II smartphone was launched on 6th November 2023.",
+      "imageFilename": "one_02.jpg",
+      "createdAt": "11/6/2023"
+    },
+    {
+      "id": 3,
+      "name": "Motorola V3x",
+      "brand": "Motorola",
+      "category": "Electronics",
+      "price": 757,
+      "description": "Motorola V3x smartphone was launched on 23rd August 2023.",
+      "imageFilename": "one_03.jpg",
+      "createdAt": "8/23/2023"
+    },
+    {
+      "id": 4,
+      "name": "Acer Iconia B1-720",
+      "brand": "Acer",
+      "category": "Electronics",
+      "price": 240,
+      "description": "Acer Iconia B1-720 smartphone was launched on 12th November 2023.",
+      "imageFilename": "one_04.jpg",
+      "createdAt": "11/12/2023"
+    },
+    {
+      "id": 5,
+      "name": "LG F70 D315",
+      "brand": "LG",
+      "category": "Electronics",
+      "price": 85,
+      "description": "LG F70 D315 smartphone was launched on 9th November 2023.",
+      "imageFilename": "one_05.jpg",
+      "createdAt": "11/9/2023"
+    },
+    {
+      "id": 6,
+      "name": "Samsung Galaxy A10",
+      "brand": "Samsung",
+      "category": "Electronics",
+      "price": 76,
+      "description": "Samsung Galaxy A10 smartphone was launched on 24th June 2024.",
+      "imageFilename": "one_06.jpg",
+      "createdAt": "6/24/2024"
+    },
+    {
+      "id": 7,
+      "name": "Apple Watch Series 2 Aluminum 42mm",
+      "brand": "Apple",
+      "category": "Electronics",
+      "price": 49,
+      "description": "Apple Watch Series 2 Aluminum 42mm smartphone was launched on 25th September 2023.",
+      "imageFilename": "one_07.jpg",
+      "createdAt": "9/25/2023"
+    },
+    {
+      "id": 8,
+      "name": "Samsung P1000 Galaxy Tab",
+      "brand": "Samsung",
+      "category": "Electronics",
+      "price": 541,
+      "description": "Samsung P1000 Galaxy Tab smartphone was launched on 31st August 2023.",
+      "imageFilename": "one_08.jpg",
+      "createdAt": "8/31/2023"
+    },
+    {
+      "id": 9,
+      "name": "Nokia 6131 NFC",
+      "brand": "Nokia",
+      "category": "Electronics",
+      "price": 132,
+      "description": "Nokia 6131 NFC smartphone was launched on 27th May 2024.",
+      "imageFilename": "one_09.jpg",
+      "createdAt": "5/27/2024"
+    },
+    {
+      "id": 10,
+      "name": "Gionee Pioneer P4S",
+      "brand": "Gionee",
+      "category": "Electronics",
+      "price": 933,
+      "description": "Gionee Pioneer P4S smartphone was launched on 2nd September 2023.",
+      "imageFilename": "one_10.jpg",
+      "createdAt": "9/2/2023"
+    }
+  ]
+}
