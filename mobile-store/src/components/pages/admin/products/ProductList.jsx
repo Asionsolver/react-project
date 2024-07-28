@@ -18,6 +18,23 @@ export const ProductList = () => {
   }
 
   useEffect(getProducts, []);
+
+  function deleteProduct(id) {
+    if(window.confirm("Are you sure you want to delete this product?")) {
+      fetch("http://localhost:3000/products/" + id, {
+        method: "DELETE"
+      })
+      .then(response => {
+        if(response.ok) {
+          getProducts();
+        } else {
+          alert("Unable to delete the product");
+        }
+      })
+      .catch(() => alert("Unable to connect to server"));
+    }
+  }
+  
   return (
     <div className="container my-4">
       <h2 className="text-center mb-4"> Products</h2>
@@ -71,7 +88,7 @@ export const ProductList = () => {
                 >
                   Edit
                 </Link>
-                <button className="btn btn-sm btn-danger">Delete</button>
+                <button className="btn btn-sm btn-danger" onClick={()=>deleteProduct(product.id)}>Delete</button>
               </td>
             </tr>
           ))}
